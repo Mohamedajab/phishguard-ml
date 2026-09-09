@@ -26,3 +26,9 @@ def test_loader_rejects_missing_columns(tmp_path: Path) -> None:
     with pytest.raises(ValueError, match="missing columns"):
         load_messages(path)
 
+
+def test_challenge_set_has_both_classes() -> None:
+    messages = load_messages(Path("data/challenge_messages.csv"))
+
+    assert len(messages) == 20
+    assert messages["label"].value_counts().to_dict() == {0: 10, 1: 10}

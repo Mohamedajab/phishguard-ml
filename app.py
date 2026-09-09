@@ -1,8 +1,6 @@
 from pathlib import Path
 
-import pandas as pd
 import streamlit as st
-from sklearn.model_selection import train_test_split
 
 from phishguard.data import load_messages
 from phishguard.evaluation import calculate_metrics
@@ -14,21 +12,22 @@ st.set_page_config(page_title="PhishGuard", page_icon="PG", layout="wide")
 
 @st.cache_resource
 def train_demo_model():
-    messages = load_messages(Path("data/messages.csv"))
-    train, test = train_test_split(
-        messages, test_size=0.25, random_state=42, stratify=messages["label"]
-    )
+    train = load_messages(Path("data/messages.csv"))
+    test = load_messages(Path("data/challenge_messages.csv"))
     model = build_model()
     model.fit(train["text"], train["label"])
     predictions = model.predict(test["text"])
     metrics = calculate_metrics(test["label"].tolist(), predictions.tolist())
+    test = test.copy()
+    test["prediction"] = predictions
+    test["phishing_probability"] = model.predict_proba(test["text"])[:, 1]
     return model, metrics, test
 
 
 model, metrics, test_messages = train_demo_model()
 st.title("PhishGuard")
-st.caption("An explainable phishing-email classifier built for learning and reproducible evaluation")
-st.warning("The model uses synthetic demonstration data and must not be treated as an email security product.")
+st.caption("A small TF-IDF and logistic-regression phishing-email experiment")
+st.warning("The training and challenge data are synthetic. This is not an email security product.")
 
 metric_columns = st.columns(4)
 for column, label, key in zip(
@@ -58,12 +57,11 @@ left.write(", ".join(phishing_terms))
 right.subheader("Terms associated with legitimate mail")
 right.write(", ".join(legitimate_terms))
 
-with st.expander("Held-out examples"):
+with st.expander("Challenge-set predictions"):
     st.dataframe(
-        test_messages[["message_id", "subject", "label"]].rename(
-            columns={"label": "actual_label"}
-        ),
+        test_messages[
+            ["message_id", "subject", "label", "prediction", "phishing_probability"]
+        ].rename(columns={"label": "actual_label"}),
         use_container_width=True,
         hide_index=True,
     )
-

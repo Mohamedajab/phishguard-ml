@@ -1,0 +1,21 @@
+message_id,subject,body,label
+challenge-legit-01,Urgent password reset notice,"You requested a password reset at 09:15. If this was not you, call the IT service desk using the number in the staff directory. This message has no sign-in link.",0
+challenge-legit-02,Invoice 4821 needs review,"The finance team marked invoice 4821 for review. Please open the copy already stored in the shared project drive. Do not send payment details by email.",0
+challenge-legit-03,Security alert from university IT,"A sign-in from a new campus computer was recorded. Check your recent activity through the university portal you normally use, or contact the service desk.",0
+challenge-legit-04,Confirm seminar attendance,"Please confirm whether you will attend Friday's research seminar by replying to this message. No account information is required.",0
+challenge-legit-05,Payroll details reminder,"HR is checking that staff records are current. If your address has changed, update it through the normal employee portal before the end of the month.",0
+challenge-legit-06,Mailbox migration next week,"The planned mailbox migration begins on Monday. You may be asked to sign in again when Outlook restarts. The IT team will not ask for your password.",0
+challenge-legit-07,Refund processed,"Your travel refund has been approved and will reach the bank account already held by finance. You do not need to provide any details.",0
+challenge-legit-08,Document shared after supervision,"I added the revised chapter to our usual shared folder after today's meeting. The filename is chapter-three-comments.docx.",0
+challenge-legit-09,Survey thank-you voucher,"Thank you for completing the student survey. The library desk will email collection details for the small voucher next week.",0
+challenge-legit-10,Action required for module choice,"Module selection closes on Friday. Review your choices in the student system and speak to your programme administrator if anything is missing.",0
+challenge-phish-01,Updated meeting notes,"I could not open the shared folder, so I placed the notes on a new document site. Use the access page below and sign in to read my comments.",1
+challenge-phish-02,Missed parcel at reception,"Reception could not accept your parcel. Use the delivery page today to choose another time and confirm your address.",1
+challenge-phish-03,Research participant payment,"Your participation payment is ready. Complete the short account form linked below so the transfer can be released.",1
+challenge-phish-04,Library account message,"A problem was found with your library record. Follow the attached instructions before tomorrow to prevent borrowing restrictions.",1
+challenge-phish-05,Conference registration update,"The registration system lost your booking information. Re-enter the details through the replacement form to keep your place.",1
+challenge-phish-06,Application document returned,"The recruitment team could not read your application. Open the attached file, enable editing and follow the document prompt.",1
+challenge-phish-07,New voicemail transcription,"A caller left a private message about your course. The transcription is available through the audio viewer linked in this email.",1
+challenge-phish-08,Calendar invitation failed,"The seminar invitation could not be added automatically. Open the calendar page and authorise the new connection.",1
+challenge-phish-09,Cloud storage renewal,"Your stored files have been moved to read-only mode. Restore normal access by completing the renewal check today.",1
+challenge-phish-10,Supervisor file request,"Please upload the draft to this temporary review page rather than the department drive. The page will ask you to confirm your university login.",1

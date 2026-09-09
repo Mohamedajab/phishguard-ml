@@ -1,39 +1,47 @@
 # PhishGuard
 
-PhishGuard is a small, explainable machine-learning project that classifies
-email text as legitimate or phishing-like. It joins the subject and body,
-turns the words into TF-IDF features, and trains a logistic-regression model.
+PhishGuard is a compact phishing-email text classifier built with TF-IDF and
+logistic regression. The aim is to keep the entire experiment inspectable:
+how the text becomes features, how the model is trained, which messages it
+gets wrong and which words influence its decisions.
 
-The repository is designed as an educational experiment, not a production
-spam filter. It uses 240 harmless synthetic messages so the complete workflow
-can be reproduced without downloading personal email or following unsafe links.
+The repository contains no private email and no live links. It uses generated
+training messages plus a separate, manually written challenge set.
 
-## Research question
+## How the experiment works
 
-> Can a transparent linear text classifier separate phishing-like language
-> from ordinary email in a controlled synthetic dataset, and what can its
-> errors and feature weights tell us?
+1. `data/messages.csv` supplies 240 generated training messages, balanced
+   between legitimate and phishing-like text.
+2. `data/challenge_messages.csv` supplies 20 harder messages written separately
+   from the generator templates.
+3. A scikit-learn pipeline converts subjects and bodies to TF-IDF unigram and
+   bigram features.
+4. Logistic regression estimates a phishing probability.
+5. The runner saves message-level predictions and confusion-matrix metrics.
 
-## How it works
-
-```mermaid
-flowchart LR
-    A[Labelled subject and body] --> B[Clean and join text]
-    B --> C[TF-IDF unigrams and bigrams]
-    C --> D[Logistic regression]
-    D --> E[Phishing probability]
-    D --> F[Precision, recall, F1 and errors]
+```text
+subject + body -> TF-IDF -> logistic regression -> probability -> error review
 ```
 
-TF-IDF gives more weight to terms that are important in one message but not
-common everywhere. Logistic regression learns one weight for each term. A
-positive weight supports the phishing class and a negative weight supports the
-legitimate class, which makes the result easier to inspect than a black-box
-model.
+## Current result
 
-## Reproduce the experiment
+The current challenge-set result is:
 
-Python 3.11 or newer is recommended.
+| Measure | Value |
+|---|---:|
+| Accuracy | 65% |
+| Precision | 0.67 |
+| Recall | 0.60 |
+| F1 | 0.63 |
+| False positives | 3 |
+| False negatives | 4 |
+
+This is a more useful result than the earlier random template split, which was
+too easy and produced 100%. The challenge set includes legitimate security
+notices and subtler phishing messages, so shared vocabulary causes real errors.
+It is still synthetic and is not a production-performance claim.
+
+## Run it
 
 ```powershell
 python -m venv .venv
@@ -42,73 +50,38 @@ python -m pip install -r requirements.txt
 python scripts/build_demo_dataset.py
 python run_experiment.py
 python -m pytest
-```
-
-Launch the dashboard with:
-
-```powershell
 streamlit run app.py
 ```
 
-`run_experiment.py` keeps 25% of the messages out of training, reports
-accuracy, precision, recall and F1, and saves predictions in `results/`. The
-random seed and class balance are fixed so that the demonstration is
-repeatable.
+`run_experiment.py` writes `results/metrics.json` and
+`results/predictions.csv`. These files are ignored by Git because they are
+reproducible outputs.
 
-## Repository layout
+## Main files
 
-```text
-phishguard-ml/
-|-- phishguard/
-|   |-- data.py
-|   |-- evaluation.py
-|   `-- model.py
-|-- scripts/build_demo_dataset.py
-|-- data/messages.csv
-|-- tests/
-|-- app.py
-`-- run_experiment.py
-```
+- `scripts/build_demo_dataset.py` - repeatable training-data generator
+- `data/challenge_messages.csv` - fixed evaluation set
+- `phishguard/data.py` - loading and validation
+- `phishguard/model.py` - TF-IDF and logistic-regression pipeline
+- `phishguard/evaluation.py` - metrics and confusion matrix
+- `run_experiment.py` - training, evaluation and saved outputs
+- `app.py` - small Streamlit demonstration
 
-## Interpreting the metrics
+Further design notes are in [`docs/PROJECT_NOTES.md`](docs/PROJECT_NOTES.md).
+The formatted report is [`docs/PhishGuard_Project_Report.pdf`](docs/PhishGuard_Project_Report.pdf).
 
-- **Precision:** of the messages flagged as phishing, how many were phishing.
-- **Recall:** of the phishing messages, how many the model found.
-- **F1:** a balance between precision and recall.
-- **False positive:** a legitimate message incorrectly blocked.
-- **False negative:** a phishing message allowed through.
+## Limits
 
-In email security, the costs differ. False positives interrupt legitimate
-work, while false negatives can expose a user to fraud. The best threshold
-depends on the deployment rather than accuracy alone.
+- Both training and challenge messages are synthetic and English-only.
+- The model sees text but not sender reputation, headers, URLs or attachments.
+- Twenty challenge messages are too few for a stable performance estimate.
+- Word features are easy to evade with new phrasing or obfuscation.
+- The probability is not calibrated for operational use.
 
-## Limitations
+A practical next step is external evaluation on a licensed public corpus,
+split by sender or campaign, followed by threshold and calibration analysis.
 
-- The messages are synthetic and contain relatively clear language patterns.
-- Similar templates occur in training and test data, making the held-out task
-  easier than genuine email from new organisations and attackers.
-- The project evaluates text only; it does not inspect URLs, attachments,
-  sender reputation, headers or domain age.
-- Attackers can paraphrase messages and deliberately avoid known terms.
-- A score from this dataset is a software-pipeline check, not evidence of
-  real-world detection performance.
+## Licence
 
-## Sensible next steps
-
-- Evaluate without retraining on a licensed public email dataset.
-- Split data by campaign or sender to test generalisation.
-- Tune the probability threshold using the cost of each error type.
-- Compare word features with character n-grams for obfuscated text.
-- Add calibration and a short model card.
-
-For a file-by-file explanation and interview questions, see
-[`docs/INTERVIEW_GUIDE.md`](docs/INTERVIEW_GUIDE.md).
-
-A formatted project report is available at
-[`docs/PhishGuard_Project_Report.pdf`](docs/PhishGuard_Project_Report.pdf).
-
-## Responsible use
-
-The examples use fictional messages and contain no live links. Do not upload
-private email to this demonstration. A practical security system needs current
-data, monitoring, privacy controls and human review.
+The code is released under the MIT licence. Do not upload private messages to
+the demonstration dashboard.
