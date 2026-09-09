@@ -1,0 +1,241 @@
+message_id,subject,body,label
+legit-028,Meeting notes for seminar,Thanks for your order. Your reference is 4608. You can view the receipt in the account you already use.,0
+legit-064,Meeting notes for security,The research team has completed this week's update. The document is in the shared project folder.,0
+phish-093,Confidential document shared with you,"Dear user, your account will be locked today. Click the link and confirm your password immediately.",1
+legit-033,Library item due next week,"Here is the agenda we discussed: progress, open questions and plans for the next sprint.",0
+legit-071,Receipt for order 1757,Welcome to the security course. The first class is at 09:00 in the room shown on your timetable.,0
+legit-120,Monthly account summary,The library team has completed this week's update. The document is in the shared project folder.,0
+phish-099,Payment failed - immediate action required,The attached document is confidential. Enable editing and sign in when prompted to read it.,1
+legit-077,Reminder: software tomorrow,Welcome to the software course. The first class is at 13:00 in the room shown on your timetable.,0
+legit-002,Meeting notes for research,"Hi Casey, the notes from our research meeting are attached. Please add any corrections before Friday.",0
+legit-003,Monthly account summary,Your monthly summary is now available through the usual account portal. This message contains no payment request.,0
+phish-080,Payment failed - immediate action required,"Dear user, your account will be locked today. Click the link and confirm your password immediately.",1
+phish-077,Password expires in one hour,We could not process invoice 6655. Open the secure form now and enter your card details to avoid a fee.,1
+phish-087,Mailbox will be suspended today,We could not process invoice 6456. Open the secure form now and enter your card details to avoid a fee.,1
+phish-106,Refund waiting for approval,Your mailbox has exceeded its limit. Sign in through this link within one hour to keep access.,1
+phish-036,Refund waiting for approval,The attached document is confidential. Enable editing and sign in when prompted to read it.,1
+legit-061,Draft agenda for our next meeting,"Hi Morgan, the notes from our project meeting are attached. Please add any corrections before Friday.",0
+phish-104,Final warning for invoice 4509,This is the final security notice. Failure to verify immediately will permanently suspend your account.,1
+legit-016,Meeting notes for security,Thanks for your order. Your reference is 2489. You can view the receipt in the account you already use.,0
+phish-114,Urgent: verify your account now,A refund of GBP 6727 is waiting. Confirm your bank details before the request expires.,1
+phish-107,Refund waiting for approval,Your mailbox has exceeded its limit. Sign in through this link within one hour to keep access.,1
+legit-007,Welcome to the research course,"Here is the agenda we discussed: progress, open questions and plans for the next sprint.",0
+phish-103,Security alert: confirm your details,The attached document is confidential. Enable editing and sign in when prompted to read it.,1
+legit-054,Weekly update from the research team,"Hi Taylor, the notes from our research meeting are attached. Please add any corrections before Friday.",0
+phish-083,Refund waiting for approval,A refund of GBP 8033 is waiting. Confirm your bank details before the request expires.,1
+legit-042,Library item due next week,Thanks for your order. Your reference is 4853. You can view the receipt in the account you already use.,0
+legit-026,Draft agenda for our next meeting,Welcome to the seminar course. The first class is at 13:00 in the room shown on your timetable.,0
+phish-031,Confidential document shared with you,"Congratulations, you were selected for a reward. Claim it today by providing your delivery and payment details.",1
+legit-039,Receipt for order 3536,Your library loan has been renewed until next week. No action is needed today.,0
+legit-030,Receipt for order 8953,This is a reminder that our session starts at 13:00. Reply if you need to rearrange it.,0
+legit-088,Project files are ready to review,"Hi Sam, the notes from our data meeting are attached. Please add any corrections before Friday.",0
+phish-006,Mailbox will be suspended today,A refund of GBP 5557 is waiting. Confirm your bank details before the request expires.,1
+phish-060,Mailbox will be suspended today,"Congratulations, you were selected for a reward. Claim it today by providing your delivery and payment details.",1
+phish-081,Password expires in one hour,A login from a new device was detected. Verify your identity and security answer now.,1
+phish-105,You have won a reward,We could not process invoice 2264. Open the secure form now and enter your card details to avoid a fee.,1
+phish-053,Refund waiting for approval,"Dear user, your account will be locked today. Click the link and confirm your password immediately.",1
+legit-060,Your booking confirmation 5564,Your library loan has been renewed until next week. No action is needed today.,0
+legit-044,Library item due next week,This is a reminder that our session starts at 10:30. Reply if you need to rearrange it.,0
+legit-023,Welcome to the data course,Thanks for your order. Your reference is 4946. You can view the receipt in the account you already use.,0
+legit-097,Reminder: security tomorrow,Welcome to the security course. The first class is at 10:30 in the room shown on your timetable.,0
+legit-115,Welcome to the software course,"Hi Sam, the notes from our software meeting are attached. Please add any corrections before Friday.",0
+legit-043,Library item due next week,"Here is the agenda we discussed: progress, open questions and plans for the next sprint.",0
+phish-047,Final warning for invoice 8432,A refund of GBP 8432 is waiting. Confirm your bank details before the request expires.,1
+legit-053,Your booking confirmation 2832,This is a reminder that our session starts at 09:00. Reply if you need to rearrange it.,0
+phish-100,Refund waiting for approval,Your mailbox has exceeded its limit. Sign in through this link within one hour to keep access.,1
+phish-057,Security alert: confirm your details,A login from a new device was detected. Verify your identity and security answer now.,1
+phish-014,Confidential document shared with you,We could not process invoice 2858. Open the secure form now and enter your card details to avoid a fee.,1
+phish-115,Password expires in one hour,We could not process invoice 4862. Open the secure form now and enter your card details to avoid a fee.,1
+legit-063,Your booking confirmation 9379,Your monthly summary is now available through the usual account portal. This message contains no payment request.,0
+legit-117,Meeting notes for security,Your monthly summary is now available through the usual account portal. This message contains no payment request.,0
+phish-040,Confidential document shared with you,"Congratulations, you were selected for a reward. Claim it today by providing your delivery and payment details.",1
+phish-005,Refund waiting for approval,"Dear user, your account will be locked today. Click the link and confirm your password immediately.",1
+legit-014,Weekly update from the teaching team,Your library loan has been renewed until next week. No action is needed today.,0
+phish-119,You have won a reward,A login from a new device was detected. Verify your identity and security answer now.,1
+phish-026,Payment failed - immediate action required,This is the final security notice. Failure to verify immediately will permanently suspend your account.,1
+phish-055,Urgent: verify your account now,Your mailbox has exceeded its limit. Sign in through this link within one hour to keep access.,1
+phish-021,Mailbox will be suspended today,This is the final security notice. Failure to verify immediately will permanently suspend your account.,1
+legit-090,Receipt for order 3496,This is a reminder that our session starts at 09:00. Reply if you need to rearrange it.,0
+legit-106,Draft agenda for our next meeting,Thanks for your order. Your reference is 4155. You can view the receipt in the account you already use.,0
+legit-072,Library item due next week,Welcome to the research course. The first class is at 15:30 in the room shown on your timetable.,0
+legit-059,Receipt for order 4728,"Hi Jordan, the notes from our software meeting are attached. Please add any corrections before Friday.",0
+legit-025,Monthly account summary,Your monthly summary is now available through the usual account portal. This message contains no payment request.,0
+legit-034,Project files are ready to review,This is a reminder that our session starts at 10:30. Reply if you need to rearrange it.,0
+legit-067,Library item due next week,"Hi Jordan, the notes from our software meeting are attached. Please add any corrections before Friday.",0
+legit-024,Weekly update from the teaching team,This is a reminder that our session starts at 09:00. Reply if you need to rearrange it.,0
+phish-025,Unusual sign-in detected,"Congratulations, you were selected for a reward. Claim it today by providing your delivery and payment details.",1
+legit-015,Welcome to the security course,Your monthly summary is now available through the usual account portal. This message contains no payment request.,0
+phish-030,Unusual sign-in detected,This is the final security notice. Failure to verify immediately will permanently suspend your account.,1
+phish-016,Password expires in one hour,A login from a new device was detected. Verify your identity and security answer now.,1
+legit-041,Monthly account summary,Thanks for your order. Your reference is 1931. You can view the receipt in the account you already use.,0
+legit-051,Library item due next week,Your library loan has been renewed until next week. No action is needed today.,0
+phish-007,Password expires in one hour,The attached document is confidential. Enable editing and sign in when prompted to read it.,1
+legit-068,Project files are ready to review,Welcome to the data course. The first class is at 15:30 in the room shown on your timetable.,0
+phish-074,You have won a reward,The attached document is confidential. Enable editing and sign in when prompted to read it.,1
+phish-035,Urgent: verify your account now,"Dear user, your account will be locked today. Click the link and confirm your password immediately.",1
+legit-105,Project files are ready to review,Your library loan has been renewed until next week. No action is needed today.,0
+phish-039,Mailbox will be suspended today,The attached document is confidential. Enable editing and sign in when prompted to read it.,1
+phish-044,Urgent: verify your account now,The attached document is confidential. Enable editing and sign in when prompted to read it.,1
+phish-023,Mailbox will be suspended today,We could not process invoice 7717. Open the secure form now and enter your card details to avoid a fee.,1
+legit-116,Reminder: project tomorrow,Thanks for your order. Your reference is 4457. You can view the receipt in the account you already use.,0
+legit-020,Your booking confirmation 9317,Your library loan has been renewed until next week. No action is needed today.,0
+legit-114,Monthly account summary,Your monthly summary is now available through the usual account portal. This message contains no payment request.,0
+phish-063,Confidential document shared with you,A refund of GBP 6553 is waiting. Confirm your bank details before the request expires.,1
+legit-073,Library item due next week,The library team has completed this week's update. The document is in the shared project folder.,0
+legit-050,Receipt for order 6617,Your library loan has been renewed until next week. No action is needed today.,0
+legit-104,Monthly account summary,"Here is the agenda we discussed: progress, open questions and plans for the next sprint.",0
+legit-101,Monthly account summary,The project team has completed this week's update. The document is in the shared project folder.,0
+phish-011,Confidential document shared with you,"Dear user, your account will be locked today. Click the link and confirm your password immediately.",1
+legit-031,Project files are ready to review,Your monthly summary is now available through the usual account portal. This message contains no payment request.,0
+legit-009,Draft agenda for our next meeting,This is a reminder that our session starts at 13:00. Reply if you need to rearrange it.,0
+phish-096,Confidential document shared with you,We could not process invoice 2013. Open the secure form now and enter your card details to avoid a fee.,1
+phish-076,Confidential document shared with you,This is the final security notice. Failure to verify immediately will permanently suspend your account.,1
+phish-097,Unusual sign-in detected,This is the final security notice. Failure to verify immediately will permanently suspend your account.,1
+legit-098,Receipt for order 6280,Thanks for your order. Your reference is 6280. You can view the receipt in the account you already use.,0
+phish-058,Urgent: verify your account now,"Dear user, your account will be locked today. Click the link and confirm your password immediately.",1
+legit-019,Weekly update from the support team,Welcome to the data course. The first class is at 13:00 in the room shown on your timetable.,0
+legit-004,Weekly update from the project team,Your monthly summary is now available through the usual account portal. This message contains no payment request.,0
+phish-009,Payment failed - immediate action required,The attached document is confidential. Enable editing and sign in when prompted to read it.,1
+phish-024,Final warning for invoice 2315,A refund of GBP 2315 is waiting. Confirm your bank details before the request expires.,1
+phish-079,Unusual sign-in detected,"Congratulations, you were selected for a reward. Claim it today by providing your delivery and payment details.",1
+legit-066,Reminder: data tomorrow,This is a reminder that our session starts at 13:00. Reply if you need to rearrange it.,0
+phish-019,Final warning for invoice 6654,A refund of GBP 6654 is waiting. Confirm your bank details before the request expires.,1
+phish-046,Payment failed - immediate action required,We could not process invoice 9071. Open the secure form now and enter your card details to avoid a fee.,1
+legit-108,Receipt for order 2647,Your library loan has been renewed until next week. No action is needed today.,0
+phish-066,Refund waiting for approval,The attached document is confidential. Enable editing and sign in when prompted to read it.,1
+phish-037,Payment failed - immediate action required,"Dear user, your account will be locked today. Click the link and confirm your password immediately.",1
+legit-008,Reminder: security tomorrow,Thanks for your order. Your reference is 4733. You can view the receipt in the account you already use.,0
+phish-069,Security alert: confirm your details,The attached document is confidential. Enable editing and sign in when prompted to read it.,1
+legit-082,Meeting notes for seminar,"Here is the agenda we discussed: progress, open questions and plans for the next sprint.",0
+legit-036,Receipt for order 2528,This is a reminder that our session starts at 09:00. Reply if you need to rearrange it.,0
+legit-056,Weekly update from the teaching team,This is a reminder that our session starts at 10:30. Reply if you need to rearrange it.,0
+legit-079,Weekly update from the research team,The research team has completed this week's update. The document is in the shared project folder.,0
+legit-046,Monthly account summary,The project team has completed this week's update. The document is in the shared project folder.,0
+phish-110,You have won a reward,A refund of GBP 8564 is waiting. Confirm your bank details before the request expires.,1
+legit-094,Welcome to the project course,Thanks for your order. Your reference is 5941. You can view the receipt in the account you already use.,0
+phish-085,Payment failed - immediate action required,A refund of GBP 6928 is waiting. Confirm your bank details before the request expires.,1
+phish-004,Final warning for invoice 8078,"Congratulations, you were selected for a reward. Claim it today by providing your delivery and payment details.",1
+phish-059,Confidential document shared with you,We could not process invoice 9032. Open the secure form now and enter your card details to avoid a fee.,1
+legit-057,Receipt for order 7745,Your library loan has been renewed until next week. No action is needed today.,0
+phish-073,Unusual sign-in detected,A refund of GBP 9691 is waiting. Confirm your bank details before the request expires.,1
+phish-017,Password expires in one hour,The attached document is confidential. Enable editing and sign in when prompted to read it.,1
+legit-055,Receipt for order 4441,Thanks for your order. Your reference is 4441. You can view the receipt in the account you already use.,0
+phish-034,Refund waiting for approval,"Congratulations, you were selected for a reward. Claim it today by providing your delivery and payment details.",1
+legit-078,Reminder: security tomorrow,The research team has completed this week's update. The document is in the shared project folder.,0
+legit-058,Project files are ready to review,The support team has completed this week's update. The document is in the shared project folder.,0
+legit-040,Meeting notes for research,"Hi Jordan, the notes from our research meeting are attached. Please add any corrections before Friday.",0
+legit-038,Reminder: research tomorrow,Your monthly summary is now available through the usual account portal. This message contains no payment request.,0
+phish-032,Final warning for invoice 8237,"Congratulations, you were selected for a reward. Claim it today by providing your delivery and payment details.",1
+legit-084,Library item due next week,This is a reminder that our session starts at 15:30. Reply if you need to rearrange it.,0
+phish-091,Mailbox will be suspended today,This is the final security notice. Failure to verify immediately will permanently suspend your account.,1
+phish-071,You have won a reward,"Congratulations, you were selected for a reward. Claim it today by providing your delivery and payment details.",1
+legit-083,Receipt for order 8999,Your library loan has been renewed until next week. No action is needed today.,0
+phish-070,Security alert: confirm your details,"Dear user, your account will be locked today. Click the link and confirm your password immediately.",1
+phish-054,Payment failed - immediate action required,"Dear user, your account will be locked today. Click the link and confirm your password immediately.",1
+legit-111,Project files are ready to review,"Here is the agenda we discussed: progress, open questions and plans for the next sprint.",0
+legit-021,Draft agenda for our next meeting,This is a reminder that our session starts at 10:30. Reply if you need to rearrange it.,0
+legit-109,Monthly account summary,This is a reminder that our session starts at 13:00. Reply if you need to rearrange it.,0
+phish-118,Unusual sign-in detected,Your mailbox has exceeded its limit. Sign in through this link within one hour to keep access.,1
+legit-069,Your booking confirmation 3780,Your library loan has been renewed until next week. No action is needed today.,0
+phish-013,You have won a reward,"Dear user, your account will be locked today. Click the link and confirm your password immediately.",1
+phish-067,Urgent: verify your account now,"Congratulations, you were selected for a reward. Claim it today by providing your delivery and payment details.",1
+phish-086,Payment failed - immediate action required,A refund of GBP 9584 is waiting. Confirm your bank details before the request expires.,1
+phish-116,Final warning for invoice 2623,Your mailbox has exceeded its limit. Sign in through this link within one hour to keep access.,1
+phish-098,Final warning for invoice 6962,"Congratulations, you were selected for a reward. Claim it today by providing your delivery and payment details.",1
+phish-061,Refund waiting for approval,"Congratulations, you were selected for a reward. Claim it today by providing your delivery and payment details.",1
+legit-099,Draft agenda for our next meeting,"Hi Morgan, the notes from our software meeting are attached. Please add any corrections before Friday.",0
+legit-113,Weekly update from the project team,Your library loan has been renewed until next week. No action is needed today.,0
+legit-103,Library item due next week,The support team has completed this week's update. The document is in the shared project folder.,0
+legit-112,Your booking confirmation 2869,Your monthly summary is now available through the usual account portal. This message contains no payment request.,0
+legit-095,Your booking confirmation 7071,"Here is the agenda we discussed: progress, open questions and plans for the next sprint.",0
+legit-032,Library item due next week,Your monthly summary is now available through the usual account portal. This message contains no payment request.,0
+legit-070,Receipt for order 2530,Your library loan has been renewed until next week. No action is needed today.,0
+legit-085,Welcome to the security course,"Hi Sam, the notes from our security meeting are attached. Please add any corrections before Friday.",0
+legit-013,Receipt for order 2084,"Here is the agenda we discussed: progress, open questions and plans for the next sprint.",0
+phish-075,Mailbox will be suspended today,"Dear user, your account will be locked today. Click the link and confirm your password immediately.",1
+legit-074,Monthly account summary,The project team has completed this week's update. The document is in the shared project folder.,0
+legit-049,Your booking confirmation 2891,This is a reminder that our session starts at 13:00. Reply if you need to rearrange it.,0
+phish-050,Password expires in one hour,"Congratulations, you were selected for a reward. Claim it today by providing your delivery and payment details.",1
+phish-078,You have won a reward,"Dear user, your account will be locked today. Click the link and confirm your password immediately.",1
+phish-002,Payment failed - immediate action required,This is the final security notice. Failure to verify immediately will permanently suspend your account.,1
+phish-062,Payment failed - immediate action required,A login from a new device was detected. Verify your identity and security answer now.,1
+legit-102,Project files are ready to review,Welcome to the security course. The first class is at 15:30 in the room shown on your timetable.,0
+phish-111,Refund waiting for approval,Your mailbox has exceeded its limit. Sign in through this link within one hour to keep access.,1
+legit-080,Library item due next week,Your monthly summary is now available through the usual account portal. This message contains no payment request.,0
+legit-081,Receipt for order 2020,Your monthly summary is now available through the usual account portal. This message contains no payment request.,0
+legit-011,Library item due next week,Your library loan has been renewed until next week. No action is needed today.,0
+phish-048,Confidential document shared with you,A refund of GBP 2622 is waiting. Confirm your bank details before the request expires.,1
+phish-108,Unusual sign-in detected,This is the final security notice. Failure to verify immediately will permanently suspend your account.,1
+legit-052,Weekly update from the research team,Welcome to the research course. The first class is at 10:30 in the room shown on your timetable.,0
+legit-076,Project files are ready to review,This is a reminder that our session starts at 15:30. Reply if you need to rearrange it.,0
+legit-010,Welcome to the data course,This is a reminder that our session starts at 13:00. Reply if you need to rearrange it.,0
+legit-118,Meeting notes for project,The project team has completed this week's update. The document is in the shared project folder.,0
+phish-120,Refund waiting for approval,This is the final security notice. Failure to verify immediately will permanently suspend your account.,1
+phish-065,Payment failed - immediate action required,We could not process invoice 2494. Open the secure form now and enter your card details to avoid a fee.,1
+legit-047,Receipt for order 2127,"Here is the agenda we discussed: progress, open questions and plans for the next sprint.",0
+phish-117,Confidential document shared with you,This is the final security notice. Failure to verify immediately will permanently suspend your account.,1
+phish-003,Security alert: confirm your details,This is the final security notice. Failure to verify immediately will permanently suspend your account.,1
+legit-119,Receipt for order 2166,Your library loan has been renewed until next week. No action is needed today.,0
+phish-056,Payment failed - immediate action required,We could not process invoice 9619. Open the secure form now and enter your card details to avoid a fee.,1
+legit-045,Your booking confirmation 6180,"Hi Casey, the notes from our project meeting are attached. Please add any corrections before Friday.",0
+phish-045,Password expires in one hour,We could not process invoice 5951. Open the secure form now and enter your card details to avoid a fee.,1
+legit-087,Draft agenda for our next meeting,"Here is the agenda we discussed: progress, open questions and plans for the next sprint.",0
+phish-090,Refund waiting for approval,This is the final security notice. Failure to verify immediately will permanently suspend your account.,1
+phish-102,Final warning for invoice 7171,Your mailbox has exceeded its limit. Sign in through this link within one hour to keep access.,1
+phish-088,Final warning for invoice 6724,Your mailbox has exceeded its limit. Sign in through this link within one hour to keep access.,1
+legit-035,Your booking confirmation 5092,Welcome to the security course. The first class is at 15:30 in the room shown on your timetable.,0
+legit-086,Weekly update from the teaching team,"Hi Alex, the notes from our project meeting are attached. Please add any corrections before Friday.",0
+phish-029,Payment failed - immediate action required,A refund of GBP 3868 is waiting. Confirm your bank details before the request expires.,1
+legit-027,Your booking confirmation 4681,"Here is the agenda we discussed: progress, open questions and plans for the next sprint.",0
+phish-041,Mailbox will be suspended today,A login from a new device was detected. Verify your identity and security answer now.,1
+phish-049,Confidential document shared with you,A login from a new device was detected. Verify your identity and security answer now.,1
+phish-068,Unusual sign-in detected,Your mailbox has exceeded its limit. Sign in through this link within one hour to keep access.,1
+phish-101,You have won a reward,A refund of GBP 6731 is waiting. Confirm your bank details before the request expires.,1
+legit-089,Your booking confirmation 4673,"Hi Casey, the notes from our seminar meeting are attached. Please add any corrections before Friday.",0
+phish-092,Refund waiting for approval,"Dear user, your account will be locked today. Click the link and confirm your password immediately.",1
+legit-092,Reminder: seminar tomorrow,Thanks for your order. Your reference is 3683. You can view the receipt in the account you already use.,0
+phish-113,Security alert: confirm your details,Your mailbox has exceeded its limit. Sign in through this link within one hour to keep access.,1
+phish-072,Refund waiting for approval,A refund of GBP 3347 is waiting. Confirm your bank details before the request expires.,1
+legit-065,Your booking confirmation 6143,Your library loan has been renewed until next week. No action is needed today.,0
+legit-096,Draft agenda for our next meeting,Welcome to the software course. The first class is at 09:00 in the room shown on your timetable.,0
+phish-084,Password expires in one hour,"Dear user, your account will be locked today. Click the link and confirm your password immediately.",1
+phish-043,You have won a reward,A refund of GBP 7038 is waiting. Confirm your bank details before the request expires.,1
+legit-012,Meeting notes for project,The project team has completed this week's update. The document is in the shared project folder.,0
+phish-001,Urgent: verify your account now,Your mailbox has exceeded its limit. Sign in through this link within one hour to keep access.,1
+legit-100,Draft agenda for our next meeting,Your library loan has been renewed until next week. No action is needed today.,0
+legit-006,Meeting notes for research,Welcome to the research course. The first class is at 13:00 in the room shown on your timetable.,0
+phish-022,Confidential document shared with you,We could not process invoice 2644. Open the secure form now and enter your card details to avoid a fee.,1
+phish-089,Mailbox will be suspended today,Your mailbox has exceeded its limit. Sign in through this link within one hour to keep access.,1
+phish-082,Urgent: verify your account now,A refund of GBP 7505 is waiting. Confirm your bank details before the request expires.,1
+phish-010,Urgent: verify your account now,This is the final security notice. Failure to verify immediately will permanently suspend your account.,1
+phish-020,Unusual sign-in detected,A refund of GBP 7274 is waiting. Confirm your bank details before the request expires.,1
+phish-094,Refund waiting for approval,A refund of GBP 2479 is waiting. Confirm your bank details before the request expires.,1
+legit-018,Your booking confirmation 1188,Your library loan has been renewed until next week. No action is needed today.,0
+legit-093,Receipt for order 7498,Thanks for your order. Your reference is 7498. You can view the receipt in the account you already use.,0
+phish-015,You have won a reward,A refund of GBP 9337 is waiting. Confirm your bank details before the request expires.,1
+legit-022,Meeting notes for seminar,Thanks for your order. Your reference is 9005. You can view the receipt in the account you already use.,0
+phish-052,Payment failed - immediate action required,A login from a new device was detected. Verify your identity and security answer now.,1
+phish-051,Refund waiting for approval,"Dear user, your account will be locked today. Click the link and confirm your password immediately.",1
+legit-048,Meeting notes for security,Your library loan has been renewed until next week. No action is needed today.,0
+legit-107,Project files are ready to review,Your library loan has been renewed until next week. No action is needed today.,0
+phish-027,Final warning for invoice 1753,"Dear user, your account will be locked today. Click the link and confirm your password immediately.",1
+phish-109,Unusual sign-in detected,"Congratulations, you were selected for a reward. Claim it today by providing your delivery and payment details.",1
+legit-091,Reminder: project tomorrow,"Here is the agenda we discussed: progress, open questions and plans for the next sprint.",0
+phish-038,Payment failed - immediate action required,"Congratulations, you were selected for a reward. Claim it today by providing your delivery and payment details.",1
+legit-001,Receipt for order 5012,This is a reminder that our session starts at 13:00. Reply if you need to rearrange it.,0
+legit-110,Project files are ready to review,Thanks for your order. Your reference is 3068. You can view the receipt in the account you already use.,0
+legit-075,Monthly account summary,"Here is the agenda we discussed: progress, open questions and plans for the next sprint.",0
+legit-037,Meeting notes for software,This is a reminder that our session starts at 10:30. Reply if you need to rearrange it.,0
+phish-064,Final warning for invoice 7992,"Congratulations, you were selected for a reward. Claim it today by providing your delivery and payment details.",1
+legit-062,Your booking confirmation 1626,Your monthly summary is now available through the usual account portal. This message contains no payment request.,0
+phish-028,Unusual sign-in detected,A refund of GBP 3385 is waiting. Confirm your bank details before the request expires.,1
+phish-012,Confidential document shared with you,This is the final security notice. Failure to verify immediately will permanently suspend your account.,1
+phish-042,Password expires in one hour,"Dear user, your account will be locked today. Click the link and confirm your password immediately.",1
+legit-005,Your booking confirmation 6514,Thanks for your order. Your reference is 6514. You can view the receipt in the account you already use.,0
+phish-018,Refund waiting for approval,This is the final security notice. Failure to verify immediately will permanently suspend your account.,1
+phish-033,Unusual sign-in detected,A refund of GBP 5949 is waiting. Confirm your bank details before the request expires.,1
+phish-008,Password expires in one hour,This is the final security notice. Failure to verify immediately will permanently suspend your account.,1
+phish-112,Security alert: confirm your details,We could not process invoice 2680. Open the secure form now and enter your card details to avoid a fee.,1
+phish-095,Refund waiting for approval,A login from a new device was detected. Verify your identity and security answer now.,1
+legit-029,Meeting notes for project,"Here is the agenda we discussed: progress, open questions and plans for the next sprint.",0
+legit-017,Library item due next week,Your monthly summary is now available through the usual account portal. This message contains no payment request.,0
