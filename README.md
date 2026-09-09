@@ -1,87 +1,71 @@
 # PhishGuard
 
-PhishGuard is a compact phishing-email text classifier built with TF-IDF and
-logistic regression. The aim is to keep the entire experiment inspectable:
-how the text becomes features, how the model is trained, which messages it
-gets wrong and which words influence its decisions.
+An inspectable phishing-text experiment: TF-IDF, logistic regression,
+training-only threshold selection and error review. It compares word and
+character n-grams without hiding the weaknesses of its synthetic data.
 
-The repository contains no private email and no live links. It uses generated
-training messages plus a separate, manually written challenge set.
+**Status:** 240 generated training messages and 20 AI-assisted synthetic
+challenge messages. No external corpus evaluated. Educational work, not an
+operational email filter.
 
-## How the experiment works
-
-1. `data/messages.csv` supplies 240 generated training messages, balanced
-   between legitimate and phishing-like text.
-2. `data/challenge_messages.csv` supplies 20 harder messages written separately
-   from the generator templates.
-3. A scikit-learn pipeline converts subjects and bodies to TF-IDF unigram and
-   bigram features.
-4. Logistic regression estimates a phishing probability.
-5. The runner saves message-level predictions and confusion-matrix metrics.
-
-```text
-subject + body -> TF-IDF -> logistic regression -> probability -> error review
-```
-
-## Current result
-
-The current challenge-set result is:
-
-| Measure | Value |
-|---|---:|
-| Accuracy | 65% |
-| Precision | 0.67 |
-| Recall | 0.60 |
-| F1 | 0.63 |
-| False positives | 3 |
-| False negatives | 4 |
-
-This is a more useful result than the earlier random template split, which was
-too easy and produced 100%. The challenge set includes legitimate security
-notices and subtler phishing messages, so shared vocabulary causes real errors.
-It is still synthetic and is not a production-performance claim.
-
-## Run it
+## Run locally (Python 3.11+)
 
 ```powershell
 python -m venv .venv
 .venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
-python scripts/build_demo_dataset.py
-python run_experiment.py
+python research.py
 python -m pytest
-streamlit run app.py
+streamlit run research_dashboard.py
 ```
 
-`run_experiment.py` writes `results/metrics.json` and
-`results/predictions.csv`. These files are ignored by Git because they are
-reproducible outputs.
+On Linux/macOS use `source .venv/bin/activate`. `run_experiment.py` and `app.py`
+retain the simpler word-feature demo. Training data is reproducible with
+`python scripts/build_demo_dataset.py` (seed 42).
 
-## Main files
+## Experiment
 
-- `scripts/build_demo_dataset.py` - repeatable training-data generator
-- `data/challenge_messages.csv` - fixed evaluation set
-- `phishguard/data.py` - loading and validation
-- `phishguard/model.py` - TF-IDF and logistic-regression pipeline
-- `phishguard/evaluation.py` - metrics and confusion matrix
-- `run_experiment.py` - training, evaluation and saved outputs
-- `app.py` - small Streamlit demonstration
+Keep body-template groups together in four training folds. Fit TF-IDF within
+each fold. Select thresholds using training out-of-fold predictions, then fit
+on all training data and evaluate the fixed challenge. Save folds, curves,
+thresholds and individual errors.
 
-Further design notes are in [`docs/PROJECT_NOTES.md`](docs/PROJECT_NOTES.md).
-The formatted report is [`docs/PhishGuard_Project_Report.pdf`](docs/PhishGuard_Project_Report.pdf).
+| Representation | Training CV F1 | Challenge F1 | Challenge ROC AUC |
+|---|---:|---:|---:|
+| Word 1-2 grams | 1.00 | .632 | .70 |
+| Character 3-5 grams | 1.00 | .267 | .41 |
 
-## Limits
+Both selected threshold 0.5. Perfect CV remains a warning: subject templates
+and label-specific language still recur. The earlier random-split 100% was not
+valid generalisation evidence. Twenty synthetic challenge messages are also
+too few for a deployment claim. Character features did not improve this run.
 
-- Both training and challenge messages are synthetic and English-only.
-- The model sees text but not sender reputation, headers, URLs or attachments.
-- Twenty challenge messages are too few for a stable performance estimate.
-- Word features are easy to evade with new phrasing or obfuscation.
-- The probability is not calibrated for operational use.
+## Outputs and external data
 
-A practical next step is external evaluation on a licensed public corpus,
-split by sender or campaign, followed by threshold and calibration analysis.
+`results/research/` contains `research.json`, `folds.csv`, `thresholds.csv`,
+`curves.csv` and `predictions.csv`. Generated results are ignored by Git.
+Re-running replaces these files; use `--output` to retain separate experiments.
 
-## Licence
+```powershell
+python research.py --training external/train.csv --challenge external/test.csv --schema mapping.json --output results/external-run
+```
 
-The code is released under the MIT licence. Do not upload private messages to
-the demonstration dashboard.
+Canonical columns: `message_id`, `subject`, `body`, `label`; external training
+also requires `group` (campaign/sender, not row ID). Optional schema JSON:
+`{"column_map":{"message":"body","target":"label"},"label_map":{"ham":0,"spam":1}}`.
+Both files must use the same mapping. Normalised text overlap and shared
+explicit groups are rejected. Near-duplicate/time leakage need further checks.
+Record source/licence and keep private messages outside the repository.
+
+## Start reading
+
+- [Interview walkthrough](INTERVIEW_WALKTHROUGH.md): concepts, files and questions.
+- [Research audit](docs/RESEARCH_AUDIT.md): leakage, protocol and limitations.
+- [Error review](docs/ERROR_ANALYSIS.md) and [verification record](docs/VERIFICATION.md).
+- [Printable report](docs/PhishGuard_Project_Report.pdf).
+- `phishguard/`: loader, pipelines and metrics.
+- `research.py`: grouped evaluation and saved evidence.
+- `tests/`: loading, overlap, grouping, models, metrics and dashboards.
+
+Scores are uncalibrated. Sender identity, attachments and URL reputation are
+outside scope. MIT licence retained.

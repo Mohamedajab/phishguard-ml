@@ -7,13 +7,14 @@ from phishguard.evaluation import calculate_metrics
 from phishguard.model import build_model, most_influential_terms
 
 
-st.set_page_config(page_title="PhishGuard", page_icon="PG", layout="wide")
+st.set_page_config(page_title="PhishGuard", layout="wide")
 
 
 @st.cache_resource
 def train_demo_model():
-    train = load_messages(Path("data/messages.csv"))
-    test = load_messages(Path("data/challenge_messages.csv"))
+    root = Path(__file__).resolve().parent
+    train = load_messages(root / "data/messages.csv")
+    test = load_messages(root / "data/challenge_messages.csv")
     model = build_model()
     model.fit(train["text"], train["label"])
     predictions = model.predict(test["text"])

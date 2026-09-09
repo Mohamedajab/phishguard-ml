@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from phishguard.data import load_messages
+from phishguard.data import load_messages, reject_overlap
 from phishguard.evaluation import calculate_metrics
 from phishguard.model import build_model, most_influential_terms
 
@@ -16,6 +16,7 @@ def run(
 ) -> dict[str, object]:
     train = load_messages(training_path)
     test = load_messages(challenge_path)
+    reject_overlap(train, test)
     model = build_model()
     model.fit(train["text"], train["label"])
     predictions = model.predict(test["text"])
@@ -32,7 +33,7 @@ def run(
         "legitimate_terms": legitimate_terms,
         "dataset_note": (
             "Model trained on generated examples and evaluated on a separate "
-            "hand-written challenge set. Results are not a real-world performance claim."
+            "AI-assisted synthetic challenge set. Results are not a real-world performance claim."
         ),
     }
 

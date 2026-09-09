@@ -6,3 +6,7 @@ __pycache__/
 results/*.json
 results/*.csv
 !results/.gitkeep
+.env
+.coverage
+htmlcov/
+results/research/
