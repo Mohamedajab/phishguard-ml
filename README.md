@@ -104,9 +104,11 @@ depends on the deployment rather than accuracy alone.
 For a file-by-file explanation and interview questions, see
 [`docs/INTERVIEW_GUIDE.md`](docs/INTERVIEW_GUIDE.md).
 
+A formatted project report is available at
+[`docs/PhishGuard_Project_Report.pdf`](docs/PhishGuard_Project_Report.pdf).
+
 ## Responsible use
 
 The examples use fictional messages and contain no live links. Do not upload
 private email to this demonstration. A practical security system needs current
 data, monitoring, privacy controls and human review.
-
