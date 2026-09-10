@@ -1,7 +1,8 @@
 # Project notes
 
-Current methodology: [RESEARCH_AUDIT.md](RESEARCH_AUDIT.md).
-Code explanation: [INTERVIEW_WALKTHROUGH.md](../INTERVIEW_WALKTHROUGH.md).
+Use `research.py` for grouped cross-validation, feature comparison, threshold
+analysis and the fixed challenge evaluation.
 
-`run_experiment.py` remains a teaching example. Use `research.py` for grouped
-cross-validation and representation/threshold analysis.
+The detailed methodology is in [RESEARCH_AUDIT.md](RESEARCH_AUDIT.md). The
+[interview walkthrough](../INTERVIEW_WALKTHROUGH.md) explains the code in plain
+English, and [ERROR_ANALYSIS.md](ERROR_ANALYSIS.md) discusses the observed errors.

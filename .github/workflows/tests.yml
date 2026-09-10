@@ -1,12 +1,7 @@
 name: tests
-
-on:
-  push:
-  pull_request:
-
+on: [push, pull_request]
 permissions:
   contents: read
-
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -17,7 +12,6 @@ jobs:
           python-version: "3.11"
           cache: pip
       - run: python -m pip install -r requirements-dev.txt
-      - run: python run_experiment.py
       - run: python research.py
       - run: python -m coverage run --source=phishguard,research -m pytest
       - run: python -m coverage report -m

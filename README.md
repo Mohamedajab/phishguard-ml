@@ -1,71 +1,69 @@
 # PhishGuard
 
-An inspectable phishing-text experiment: TF-IDF, logistic regression,
-training-only threshold selection and error review. It compares word and
-character n-grams without hiding the weaknesses of its synthetic data.
+An inspectable phishing-text experiment using TF-IDF and logistic regression.
+It compares word and character features, selects a decision threshold from
+training-only predictions, and keeps message-level errors visible.
 
-**Status:** 240 generated training messages and 20 AI-assisted synthetic
-challenge messages. No external corpus evaluated. Educational work, not an
-operational email filter.
+Status: 240 generated training messages and 20 AI-assisted synthetic challenge
+messages. No external corpus has been evaluated, so this is educational work,
+not an operational email filter.
 
-## Run locally (Python 3.11+)
+## Run it
 
 ```powershell
 python -m venv .venv
 .venv\Scripts\Activate.ps1
-python -m pip install -r requirements.txt
+python -m pip install -r requirements-dev.txt
 python research.py
 python -m pytest
 streamlit run research_dashboard.py
 ```
 
-On Linux/macOS use `source .venv/bin/activate`. `run_experiment.py` and `app.py`
-retain the simpler word-feature demo. Training data is reproducible with
-`python scripts/build_demo_dataset.py` (seed 42).
+Use `source .venv/bin/activate` on Linux or macOS. Regenerate the training CSV
+with `python scripts/build_demo_dataset.py` (fixed seed 42).
 
-## Experiment
+## Experiment and results
 
-Keep body-template groups together in four training folds. Fit TF-IDF within
-each fold. Select thresholds using training out-of-fold predictions, then fit
-on all training data and evaluate the fixed challenge. Save folds, curves,
-thresholds and individual errors.
+Four folds keep examples from the same body template together. TF-IDF is fitted
+inside every fold. Thresholds are selected from out-of-fold training predictions,
+then each representation is fitted on all training data and evaluated once on
+the fixed challenge.
 
 | Representation | Training CV F1 | Challenge F1 | Challenge ROC AUC |
 |---|---:|---:|---:|
 | Word 1-2 grams | 1.00 | .632 | .70 |
 | Character 3-5 grams | 1.00 | .267 | .41 |
 
-Both selected threshold 0.5. Perfect CV remains a warning: subject templates
-and label-specific language still recur. The earlier random-split 100% was not
-valid generalisation evidence. Twenty synthetic challenge messages are also
-too few for a deployment claim. Character features did not improve this run.
+Both selected threshold 0.5. Perfect training CV is a warning rather than a
+headline: subject templates and label-specific language still recur. The first
+random-split 100% result was not valid evidence of generalisation. Twenty
+synthetic challenge messages are also too few for a deployment claim.
 
-## Outputs and external data
+`results/research/` contains the local generated outputs: fold predictions,
+threshold table, ROC/PR coordinates and per-message errors. These files are
+ignored by Git and can be rebuilt.
 
-`results/research/` contains `research.json`, `folds.csv`, `thresholds.csv`,
-`curves.csv` and `predictions.csv`. Generated results are ignored by Git.
-Re-running replaces these files; use `--output` to retain separate experiments.
+## External data
 
 ```powershell
 python research.py --training external/train.csv --challenge external/test.csv --schema mapping.json --output results/external-run
 ```
 
-Canonical columns: `message_id`, `subject`, `body`, `label`; external training
-also requires `group` (campaign/sender, not row ID). Optional schema JSON:
-`{"column_map":{"message":"body","target":"label"},"label_map":{"ham":0,"spam":1}}`.
-Both files must use the same mapping. Normalised text overlap and shared
-explicit groups are rejected. Near-duplicate/time leakage need further checks.
-Record source/licence and keep private messages outside the repository.
+Canonical columns are `message_id`, `subject`, `body`, `label`, plus a training
+`group` such as campaign or sender. Optional schema JSON maps source columns and
+labels. Both files must use the same mapping. Exact normalised text overlap and
+shared explicit groups are rejected; semantic duplicates and time leakage still
+need dataset-specific checks. Record the corpus source/licence and keep private
+mail outside the repository.
 
 ## Start reading
 
-- [Interview walkthrough](INTERVIEW_WALKTHROUGH.md): concepts, files and questions.
-- [Research audit](docs/RESEARCH_AUDIT.md): leakage, protocol and limitations.
-- [Error review](docs/ERROR_ANALYSIS.md) and [verification record](docs/VERIFICATION.md).
-- [Printable report](docs/PhishGuard_Project_Report.pdf).
-- `phishguard/`: loader, pipelines and metrics.
+- [Interview walkthrough](INTERVIEW_WALKTHROUGH.md): concepts and file map.
+- [Research audit](docs/RESEARCH_AUDIT.md): leakage and remaining limitations.
+- [Error analysis](docs/ERROR_ANALYSIS.md): seven word-model challenge errors.
+- [Verification](docs/VERIFICATION.md): tests, coverage and environment.
 - `research.py`: grouped evaluation and saved evidence.
-- `tests/`: loading, overlap, grouping, models, metrics and dashboards.
+- `phishguard/`: loading, feature pipelines and metrics.
 
-Scores are uncalibrated. Sender identity, attachments and URL reputation are
-outside scope. MIT licence retained.
+Scores are uncalibrated. Sender identity, attachments, link reputation and
+transport headers are outside scope. MIT licence retained.

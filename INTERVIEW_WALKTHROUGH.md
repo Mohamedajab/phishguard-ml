@@ -1,86 +1,74 @@
 # PhishGuard: interview walkthrough
 
-## A short introduction
+## Thirty-second explanation
 
 “This is a readable phishing-text baseline using TF-IDF and logistic regression.
 I compare word and character features and choose thresholds from training-only
-predictions. The data is synthetic, so it demonstrates evaluation and error
-analysis rather than a deployable phishing filter.”
+predictions. The data is synthetic, so the useful part is the evaluation and
+error analysis, not a claim that it is ready to filter email.”
 
-Implementation and challenge construction used AI assistance. Be clear about
-that, and practise explaining and modifying the code instead of memorising scores.
+Implementation and synthetic-data construction used coding-assistant support.
+Be clear about that, then demonstrate understanding by running and modifying it.
 
-## Important files
+## Follow the experiment
 
-| File | Purpose and decision |
+`research.py` loads the training and challenge CSVs. `phishguard/data.py` checks
+columns, labels, IDs, empty text and simple overlap. Training examples are grouped
+by body template. Four group folds produce out-of-fold probabilities. Thresholds
+are compared on those training predictions. Word and character pipelines are
+then fitted to all training messages and tested on the same fixed challenge.
+The runner writes the comparison, curves, folds, thresholds and every error.
+
+## File map
+
+| File | What to explain |
 |---|---|
-| `phishguard/data.py` | External schema mapping, ID/text/label validation, subject/body combination, normalised overlap and group checks. Not a semantic deduplicator. |
-| `phishguard/model.py` | Pipeline fits TF-IDF within each fold. Word 1-2 grams or character-within-word 3-5 grams feed balanced logistic regression. Coefficients are associations, not causes. |
-| `phishguard/evaluation.py` | Accuracy, precision, recall, F1 and confusion counts. Handles zero predicted positives with precision zero. |
-| `phishguard/__init__.py` | Marks the Python package. |
-| `scripts/build_demo_dataset.py` | Generates 240 messages with fixed seed; its few label-specific templates are the central methodological weakness. |
+| `phishguard/data.py` | Schema mapping and validation. It catches exact normalised overlap, not paraphrases. |
+| `phishguard/model.py` | A Pipeline keeps TF-IDF fitting inside a training fold. Word 1-2 grams and character-within-word 3-5 grams feed balanced logistic regression. |
+| `phishguard/evaluation.py` | Accuracy, precision, recall, F1 and confusion counts. |
+| `scripts/build_demo_dataset.py` | Reproducible generator. Its few label-specific templates are the main weakness. |
 | `data/messages.csv` | Synthetic training data, not a public email corpus. |
-| `data/challenge_messages.csv` | Twenty separately constructed synthetic examples, previously inspected; ambiguous without real sender context. |
-| `run_experiment.py` | Simple fixed word-model example at threshold 0.5. |
-| `research.py` | Body-template/external groups, four folds, saved OOF predictions, thresholds, both models, curves and errors. |
-| `app.py` | Interactive demo that retrains at startup and uses threshold 0.5. |
-| `research_dashboard.py` | Reads saved research outputs; ROC/PR, thresholds, comparison and errors. |
-| `tests/` | Validation, overlap, groups, model options, metrics, threshold ties and Streamlit execution. |
-| `.github/workflows/tests.yml` | Offline tests and experiment, no private data/credentials. |
-| `requirements.txt`, `pyproject.toml`, `.gitignore` | Dependencies, test settings and exclusions. An ignore rule is not a privacy guarantee. |
-| `LICENSE`, `README.md`, `docs/` | MIT permission, quick start and methodology. |
+| `data/challenge_messages.csv` | Twenty separately constructed synthetic cases; labels can be ambiguous without sender/link evidence. |
+| `research.py` | Group folds, out-of-fold predictions, threshold selection, model comparison, curves and errors. |
+| `research_dashboard.py` | Reads saved results; it does not retrain or tune from the UI. |
+| `tests/` | Validation, overlap, groups, models, thresholds, full runner and dashboard execution. |
+| `.github/workflows/tests.yml` | Rebuilds results and tests on Linux with read-only repository permissions. |
 
-## Explain the model
+## Concepts to explain
 
-TF-IDF makes a sparse vector for each message. Features get more weight when
-important to that message and less common across training messages. Logistic
-regression combines features with learned coefficients and an intercept, then
-applies a sigmoid. The score is between zero and one, but is not automatically
-a calibrated real-world probability.
+TF-IDF makes a sparse vector. Logistic regression combines feature values with
+learned coefficients and an intercept, then applies a sigmoid. The output is a
+score between zero and one, not automatically a calibrated real-world probability.
 
-Word bigrams preserve short phrases. Character n-grams capture word fragments
-and some spelling variants, but can learn shortcuts too. Equal feature caps
-do not mean equal information capacity. Balanced class weights alter fitting;
-they do not reproduce realistic phishing prevalence.
+Word bigrams preserve short phrases. Character n-grams capture fragments and
+some spelling variants, but can learn shortcuts too. Equal feature caps do not
+make the representations equivalent. Balanced class weights do not recreate
+real phishing prevalence.
 
-## Explain the evaluation
+ROC describes ranking across false-positive and true-positive rates. PR shows
+the precision/recall trade-off and depends strongly on prevalence. AUC does not
+choose an operating threshold or encode the costs of missed attacks and alarms.
 
-Four folds keep variants of one body template together. Fit on three folds and
-predict the fourth until every training message has an out-of-fold score.
-Threshold selection uses those scores, never challenge labels. Word wins the
-representation tie at mean training-fold F1=1.0. Both thresholds are 0.5.
-The selection score is optimistic; nested CV would assess the selection process.
+## Results you should be able to derive
 
-ROC plots true-positive against false-positive rate. PR plots precision against
-recall and depends on prevalence. AUC measures ranking, not the cost of a chosen
-threshold. Raising a fixed-score threshold cannot increase positive predictions
-or recall, but precision need not improve monotonically on a finite sample.
+Word features give 6 true positives, 7 true negatives, 3 false positives and
+4 false negatives: precision 6/9, recall 6/10 and F1 .6316. Character features
+give 2 TP, 7 TN, 3 FP and 8 FN: F1 .2667. Both get perfect grouped training CV.
+That gap shows that careful splitting cannot repair unrepresentative data.
 
-## Actual findings
+## Likely questions
 
-Word: 6 TP, 7 TN, 3 FP and 4 FN on the challenge. Precision=6/9, recall=6/10,
-F1=.6316. Character: 2 TP, 7 TN, 3 FP and 8 FN; F1=.2667. Both have perfect
-training CV. Validation machinery cannot repair unrepresentative data: subject
-templates still recur and label-specific vocabulary remains easy.
+- **Was the first 100% fake?** No; it described an easy split. Presenting it as
+  generalisation evidence was invalid because template variants crossed the split.
+- **Why not a transformer?** A bigger model does not fix leakage or ambiguous labels.
+- **Why optimise F1?** It is a declared simple objective, not a deployment cost model.
+- **Is the challenge independent?** It is separate but synthetic, author-aware and
+  already inspected. No external validation has happened.
+- **Why did character features lose?** They represented this tiny dataset less
+  usefully; the study cannot establish a general reason or universal ranking.
+- **Next step?** Licensed de-identified data, campaign and time separation,
+  near-duplicate checks, validation-only calibration, then one untouched test.
 
-## Questions to prepare for
-
-- **Was the first 100% fabricated?** It described an easy random template split;
-  treating it as generalisation evidence was invalid. This does not prove test
-  labels entered vectoriser fitting.
-- **Why not a transformer?** A larger model would not fix leakage or ambiguous labels.
-- **Why F1?** A declared simple objective, not a deployment cost model. Real use
-  requires acceptable false-alarm and missed-attack costs.
-- **Is the challenge independent?** Separate from templates, but synthetic,
-  author-aware and previously inspected. External validation is still absent.
-- **Why did characters lose?** Possibly less useful representation for these
-  messages; the small sample cannot establish a general causal explanation.
-- **What next?** Licensed de-identified data; campaign/time splits, near-duplicate
-  checks, validation-only calibration, then one untouched external evaluation.
-
-## Practise
-
-Open the saved errors; choose one FP and one FN and explain their vocabulary
-and missing context. Predict a threshold change before reading the curve.
-Add a duplicate-ID loader test. Explain why fitting TF-IDF before CV would
-leak vocabulary statistics even without explicitly using the labels.
+Before presenting, choose one false positive and one false negative from
+`docs/ERROR_ANALYSIS.md`, predict the effect of raising the threshold, and add
+one loader test yourself. That is a better demonstration than memorising scores.
