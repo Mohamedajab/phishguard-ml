@@ -60,6 +60,7 @@ mail outside the repository.
 
 - [Interview walkthrough](INTERVIEW_WALKTHROUGH.md): concepts and file map.
 - [Research audit](docs/RESEARCH_AUDIT.md): leakage and remaining limitations.
+- [Dataset and evaluation guide](docs/DATA_AND_EVALUATION.md): CSV schema, grouped validation and metric interpretation.
 - [Error analysis](docs/ERROR_ANALYSIS.md): seven word-model challenge errors.
 - [Verification](docs/VERIFICATION.md): tests, coverage and environment.
 - `research.py`: grouped evaluation and saved evidence.
